@@ -10,6 +10,17 @@ class AdjacencyMatrix:
   def add_edge(self, edge):
     self.matrix[self.node_to_index[edge[0]]][self.node_to_index[edge[1]]] = 1
 
+  def dfs(self, start_node, visited):
+    if visited is None:
+      visited = set()
+    if start_node not in visited:
+      print(start_node)
+      visited.add(start_node)
+      neighbours = self.matrix[self.node_to_index[start_node]]
+      for index, neighbour in enumerate(neighbours):
+        if neighbour == 1:
+          neighbour_node = [node for node, i in self.node_to_index.items() if i == index][0]
+          self.dfs(neighbour_node, visited)
+
   def __repr__(self):
     return '\n'.join([' '.join([str(cell) for cell in row]) for row in self.matrix])
-

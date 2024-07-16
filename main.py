@@ -39,3 +39,9 @@ print(adjacency_list)
 
 print('DFS with edge list:')
 edge_list.dfs('A', None)
+
+print('DFS with adjacency list:')
+adjacency_list.dfs('A', None)
+
+print('DFS with adjacency matrix:')
+adjacency_matrix.dfs('A', None)

@@ -8,6 +8,16 @@ class AdjacencyList:
   def add_edge(self, edge):
     self.graph[edge[0]].append(edge[1])
 
+  def dfs(self, start_node, visited):
+    if visited is None:
+      visited = set()
+    if start_node not in visited:
+      print(start_node)
+      visited.add(start_node)
+      for neighbour in self.graph[start_node]:
+        if neighbour not in visited:
+          self.dfs(neighbour, visited)
+
   def __repr__(self):
     return '\n'.join([f'{node}: {neighbours}' for node, neighbours in self.graph.items()])
     
