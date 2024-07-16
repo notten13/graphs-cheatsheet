@@ -36,3 +36,6 @@ for edge in edges:
   adjacency_list.add_edge(edge)
 print('\nAdjacency list:')
 print(adjacency_list)
+
+print('DFS with edge list:')
+edge_list.dfs('A', None)
